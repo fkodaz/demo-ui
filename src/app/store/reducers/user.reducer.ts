@@ -41,20 +41,16 @@ export function reducer(state: State | undefined, action: Action): any {
   return loginReducer(state, action);
 }
 
-export const getLoggedInUser = (state: State) => {
-  return {
-    isLoggedIn: state.isLoggedIn
-  }
-};
-
 export const userLogin = (state: State) => {
   return {
-    ...state
+    ...state,
+    profile: <any>accessTokenDecode()
   }
 };
 
 export const userSignup = (state: State) => {
   return {
-    ...state
+    ...state,
+    profile: <any>accessTokenDecode()
   }
 };
