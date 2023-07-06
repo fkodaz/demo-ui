@@ -1,0 +1,30 @@
+<div>
+  <div nz-row [nzGutter]="16">
+    <button nz-button nzType="primary" class="filter-trigger" (click)="showFilter()">
+      <span nz-icon nzType="search"></span>
+      Filter
+    </button>
+    <div nz-col class="gutter-row" [nzLg]="6" class="filter">
+      <ng-container *ngTemplateOutlet="filterTemplate"></ng-container>
+    </div>
+    <div nz-col class="gutter-row" [nzLg]="18" [nzSm]="24" [nzXs]="24">
+      <app-search-result/>
+    </div>
+  </div>
+
+  <nz-modal [(nzVisible)]="mobileFilterVisible" (nzOnCancel)="hideFilter()">
+    <div *nzModalContent>
+      <ng-container *ngTemplateOutlet="filterTemplate"></ng-container>
+    </div>
+    <div *nzModalFooter>
+      <button nz-button nzType="primary" (click)="hideFilter()">Ok</button>
+    </div>
+  </nz-modal>
+
+  <ng-template #filterTemplate>
+    <app-filter-bar/>
+  </ng-template>
+</div>
+
+<router-outlet></router-outlet>
+

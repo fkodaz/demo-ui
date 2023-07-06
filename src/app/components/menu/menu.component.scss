@@ -1,0 +1,30 @@
+.menu {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  border: 1px solid #e5e5e5;
+  padding: 20px;
+  justify-content: space-between;
+
+  &__logo {
+    img {
+      display: block;
+
+      @media screen and (max-width: 767px) {
+        width: 100px;
+      }
+    }
+  }
+
+  nav {
+    margin-left: 20px;
+
+    a {
+      font-size: 18px;
+      padding: 0 20px;
+    }
+  }
+
+  &__right {
+  }
+}

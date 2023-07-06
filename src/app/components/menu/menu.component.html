@@ -1,0 +1,40 @@
+<div class="menu">
+  <div class="menu__logo">
+    <a routerLink="/">
+      <img src="assets/images/logo@2x.png" width="166"/>
+    </a>
+  </div>
+  <nav>
+    <a routerLink="/">
+      Home
+    </a>
+    <a routerLink="/favorites">
+      Favorites
+    </a>
+  </nav>
+
+  <div class="menu__right">
+    <ng-container *ngIf="!loggedIn">
+      <a routerLink="/login">
+        <button nz-button nzType="primary">Login</button>
+      </a>
+      <a routerLink="/register">
+        <button nz-button nzType="default">Register</button>
+      </a>
+    </ng-container>
+
+    <ng-container *ngIf="loggedIn">
+      <nz-avatar nzSize="large" nzIcon="user" style="background-color:#87d068;" nz-dropdown nzPlacement="bottomRight" nzTrigger="click"
+                 [nzDropdownMenu]="menu"></nz-avatar>
+
+    </ng-container>
+
+    <nz-dropdown-menu #menu="nzDropdownMenu">
+      <ul nz-menu>
+        <li nz-menu-item><a routerLink="/profile">Profile</a></li>
+        <li nz-menu-item (click)="logout()">Logout</li>
+      </ul>
+
+    </nz-dropdown-menu>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="favorites">
+  <ng-container *ngIf="favoriteCharacters?.length===0">
+    <nz-result
+      nzTitle="No Favorites"
+      nzStatus="error"/>
+  </ng-container>
+  <ng-container *ngIf="favoriteCharacters && favoriteCharacters!.length>0">
+    <div class="favorites__title">
+      Favorites
+    </div>
+    <div nz-row [nzGutter]="[16,16]">
+      <div nz-col [nzLg]="8" [nzSm]="12" [nzXs]="24"  *ngFor="let character of favoriteCharacters;">
+        <app-character-card [character]="character"/>
+      </div>
+    </div>
+  </ng-container>
+</div>

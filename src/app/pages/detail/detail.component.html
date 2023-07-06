@@ -1,0 +1,18 @@
+<nz-descriptions [nzTitle]="detail.Name" nzBordered nzLayout="vertical">
+  <nz-descriptions-item nzTitle="Gender" [nzSpan]="4">
+    <ng-container *ngIf="detail.IsFemale">Female</ng-container>
+    <ng-container *ngIf="!detail.IsFemale">Male</ng-container>
+  </nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Books" [nzSpan]="4">
+    <ng-container *ngFor="let book of detail.Books; let i = index">
+      <ng-container *ngIf="i>0">,</ng-container>
+      {{book}}
+    </ng-container>
+  </nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Tv Series" [nzSpan]="4">
+    <ng-container *ngFor="let tvSerie of detail.TvSeries; let i = index">
+      <ng-container *ngIf="i>0">,</ng-container>
+      {{tvSerie}}
+    </ng-container>
+  </nz-descriptions-item>
+</nz-descriptions>

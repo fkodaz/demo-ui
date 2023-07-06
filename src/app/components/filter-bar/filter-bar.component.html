@@ -1,0 +1,38 @@
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+  <div class="filter-bar">
+    <div class="filter-bar__item">
+      <div class="filter-bar__item__title">
+        Keyword
+      </div>
+      <input nz-input type="text" formControlName="name"/>
+    </div>
+    <div class="filter-bar__item">
+      <div class="filter-bar__item__title">
+        Gender
+      </div>
+      <div>
+        <nz-radio-group formControlName="gender">
+          <label nz-radio [nzValue]="false">Male</label>
+          <label nz-radio [nzValue]="true">Female</label>
+          <label nz-radio [nzValue]="null">All</label>
+        </nz-radio-group>
+      </div>
+    </div>
+    <div class="filter-bar__item">
+      <div class="filter-bar__item__title">
+        Books
+      </div>
+      <div>
+        <nz-checkbox-group  formControlName="books"/>
+      </div>
+    </div>
+    <div class="filter-bar__item">
+      <div class="filter-bar__item__title">
+        Tv Series
+      </div>
+      <div>
+        <nz-checkbox-group [(ngModel)]="tvSeriesOptions" formControlName="series"></nz-checkbox-group>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,28 @@
+<div class="character-card">
+  <div class="character-card__name">
+    <b>{{character.Name}}</b>
+  </div>
+  <div class="character-card__detail">
+    <b>Gender: </b>
+    <ng-container *ngIf="character.IsFemale">Female</ng-container>
+    <ng-container *ngIf="!character.IsFemale">Male</ng-container>
+  </div>
+  <div class="character-card__detail">
+    <b>Died: </b>
+    <ng-container *ngIf="character.Died===''">-</ng-container>
+    <ng-container *ngIf="character.Died!==''">{{character.Died}}</ng-container>
+  </div>
+
+  <div class="character-card__favorite">
+    <button nz-button nzLoading="false" nzShape="circle" (click)="addFavorite()">
+      <span nz-icon [nzType]="'heart'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#eb2f96'" *ngIf="isFav"></span>
+      <span nz-icon nzType="heart" nzTheme="outline" *ngIf="!isFav"></span>
+    </button>
+  </div>
+
+  <a [routerLink]="'/detail/'+character._id">
+    Detail
+  </a>
+
+
+</div>

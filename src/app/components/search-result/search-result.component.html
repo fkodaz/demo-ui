@@ -1,0 +1,27 @@
+<div class="search-result">
+  <ng-container *ngIf="searchResult?.results?.length===0">
+    <nz-result
+      nzTitle="No Result"
+      nzStatus="error"/>
+  </ng-container>
+
+  <ng-container *ngIf="!searchResult">
+    <div class="loading">
+      <nz-spin nzTip="Loading..."></nz-spin>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="searchResult?.results && searchResult?.results!.length>0">
+    <div nz-row [nzGutter]="[16,16]">
+      <div nz-col [nzLg]="8"  [nzMd]="12" [nzSm]="24" [nzXs]="24" *ngFor="let character of searchResult?.results;">
+        <app-character-card [character]="character"/>
+      </div>
+    </div>
+    <div nz-row [nzGutter]="[16,16]"  nzJustify="center">
+      <div nz-col>
+        <nz-pagination [nzPageIndex]="filter?.page" [nzTotal]="searchResult.totalSize" [nzPageSize]="12"
+                       (nzPageIndexChange)="pageChange($event)"></nz-pagination>
+      </div>
+    </div>
+  </ng-container>
+</div>

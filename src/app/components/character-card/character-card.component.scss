@@ -1,0 +1,33 @@
+.character-card {
+  border-radius: 8px;
+  border: 1px solid #e5e5e5;
+  padding: 8px 16px;
+  position: relative;
+
+  &__name {
+    position: relative;
+    font-size: 22px;
+    padding-bottom: 5px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -16px;
+      height: 1px;
+      background: #e5e5e5;
+      width: calc(100% + 32px);
+    }
+  }
+
+  &__detail {
+    font-size: 16px;
+    padding: 5px 0;
+  }
+
+  &__favorite {
+    position: absolute;
+    right: 5px;
+    top: 7px;
+  }
+}
